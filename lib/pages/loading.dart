@@ -19,6 +19,13 @@ class _LoadingState extends State<Loading> {
     setState(() {
       time = instance.time;
     });
+
+    // arguments to pass the info to the home screen
+    Navigator.pushNamed(context, '/home', arguments: {
+      'location': instance.location,
+      'flag': instance.flag,
+      'time': instance.time,
+    });
   }
 
   //life cycles
@@ -28,6 +35,7 @@ class _LoadingState extends State<Loading> {
     super.initState();
     setupWorldTime();
   }
+  
 
 
   @override

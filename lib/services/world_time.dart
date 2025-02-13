@@ -1,5 +1,6 @@
 import 'package:http/http.dart';
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class WorldTime{
   String? location;
@@ -21,7 +22,7 @@ class WorldTime{
       if (response.body.isEmpty) {
         throw FormatException("Received empty response from server");
       }
-      
+
       Map data = jsonDecode(response.body);
 
       // get property from data
@@ -42,7 +43,8 @@ class WorldTime{
       // print(now);
 
       //set the time property
-      time = now.toString();
+      // time = now.toString();
+      time = DateFormat.jm().format(now);
 
     } catch (e) {
         print("Request failed: $e"); // Handle timeout or other errors
